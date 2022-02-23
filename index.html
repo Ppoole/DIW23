@@ -1,53 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animaciones número primitiva</title>
     <script>
-        function sorteo() {
-            const num = [];
-            const primitiva = [];
-            for (let i = 1; i <= 49; i++) num.push(i);
-            for (let i = 0; i < 7; i++) {
-
-                let indice = Math.floor(Math.random() * num.length);
-                let number = num[indice];
-                num.splice(indice, 1);
-                primitiva.push(number);
-                if (i == 5) primitiva.sort((a, b) => a - b);
-            }
-            return primitiva;
-        };
-        window.addEventListener('DOMContentLoaded', () => {
-            const nums = sorteo();
-            document.querySelector(".nums").querySelectorAll("div").forEach((v, k) => v.textContent = nums[k]);
-            document.getElementById('fecha').textContent += new Date().toLocaleDateString();
-
-        });
-
+      function sorteo() {
+        const num = [];
+        const primitiva = [];
+        for (let i = 1; i <= 49; i++) num.push(i);
+        for (let i = 0; i < 7; i++) {
+          let indice = Math.floor(Math.random() * num.length);
+          let number = num[indice];
+          num.splice(indice, 1);
+          primitiva.push(number);
+          if (i == 5) primitiva.sort((a, b) => a - b);
+        }
+        return primitiva;
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        const nums = sorteo();
+        document
+          .querySelector(".nums")
+          .querySelectorAll("div")
+          .forEach((v, k) => (v.textContent = nums[k]));
+        document.getElementById("fecha").textContent +=
+          new Date().toLocaleDateString();
+      });
     </script>
-</head>
+    <style>
+      div {
+        border-radius: 70%;
+        background: -webkit-gradient(
+            linear,
+            0% 0%,
+            0% 100%,
+            from(rgba(187, 190, 4, 0.8)),
+            to(rgba(155, 144, 144, 0.603))
+          ),
+          -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
+        background: -moz-linear-gradient(
+            top,
+            rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.25)
+          ),
+          -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(190, 179, 11, 0.1)
+                50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+        background: linear-gradient(
+            top,
+            rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.25)
+          ),
+          linear-gradient(
+            left top,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0)
+          );
 
-<body>
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 170%;
+      }
+    </style>
+  </head>
+
+  <body>
     <header></header>
     <main>
-        <div class="nums">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>C</div>
-        </div>
-        <div>
-            <div id="fecha">Fecha del sorteo: </div>
-        </div>
+      <div class="nums">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>C</div>
+      </div>
+      <div>
+        <div id="fecha">Fecha del sorteo:</div>
+      </div>
     </main>
     <footer></footer>
-</body>
-
+  </body>
 </html>
